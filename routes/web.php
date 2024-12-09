@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MalfunctionsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/malfunction', [MalfunctionsController::class, 'index'])->name('malfunction.index');
+Route::post('/malfunction', [MalfunctionsController::class, 'store'])->name('malfunction.store');
+Route::get('/malfunction/create', [MalfunctionsController::class, 'create'])->name('malfunction.create');
+Route::get('/malfunction/{malfunction}', [MalfunctionsController::class, 'show'])->name('malfunction.show');
+Route::get('/malfunction/{malfunction}/edit', [MalfunctionsController::class, 'edit'])->name('malfunction.edit');
+Route::put('/malfunction/{malfunction}', [MalfunctionsController::class, 'update'])->name('malfunction.update');
+Route::delete('/malfunction/{malfunction}', [MalfunctionsController::class, 'destroy'])->name('malfunction.destroy');
+
 
 Auth::routes();
 
