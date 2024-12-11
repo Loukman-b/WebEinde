@@ -9,9 +9,7 @@ class machine extends Model
 {
     use HasFactory;
 
-    // Een machine kan meerdere malfuncties hebben
-    public function malfunctions()
-    {
-        return $this->hasMany(Malfunction::class);
-    }
+    protected $fillable = [
+        'name',
+    ];
 }

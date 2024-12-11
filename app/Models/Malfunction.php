@@ -9,6 +9,14 @@ class malfunction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'machine_id',
+        'status_id',
+        'user_id',
+        'description',
+        'finished_at',
+    ];
+
     // Een storing behoort tot één machine
     public function machine()
     {
@@ -24,6 +32,6 @@ class malfunction extends Model
     // Een storing kan toegewezen zijn aan één gebruiker
     public function user()
     {
-        return $this->belongsTo(User::class)->nullable();
+        return $this->belongsTo(User::class); // Een storing behoort tot een gebruiker
     }
 }

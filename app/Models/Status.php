@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class status extends Model
 {
     use HasFactory;
-    
-    // Een status kan gekoppeld zijn aan meerdere malfuncties
-    public function malfunctions()
-    {
-        return $this->hasMany(Malfunction::class);
-    }
+
+    // De $fillable array maakt het mogelijk om nieuwe statussen aan te maken of bestaande te updaten.
+    protected $fillable = [
+        'name',
+    ];
 }
