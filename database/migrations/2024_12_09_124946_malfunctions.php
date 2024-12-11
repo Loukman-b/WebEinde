@@ -20,7 +20,7 @@ return new class extends Migration
             // Verwijzing naar de 'users' tabel, mag null zijn (kan zonder gebruiker)
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->text('description');
-            $table->timestamp('finished_at');
+            $table->timestamp('finished_at')->nullable();
             $table->timestamps();
         });
     }
