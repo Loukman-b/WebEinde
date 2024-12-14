@@ -47,7 +47,8 @@ class MalfunctionsController extends Controller
 
         // Maak een nieuwe malfunction en vul de velden met de input uit de request
         $malfunction = new Malfunction();
-        $malfunction->machine_id = $request->machine_id;
+        $malfunction->machine_id = $request->machine_id; 
+        //De eigenschap machine_id van het Malfunction-object wordt ingesteld met de waarde die in het formulier is ingediend onder machine_id.
         $malfunction->status_id = $request->status_id;
         $malfunction->user_id = $request->user_id;
         $malfunction->description = $request->description;
@@ -65,7 +66,7 @@ class MalfunctionsController extends Controller
         // Zoek de malfunction op basis van het ID
         $malfunction = Malfunction::findOrFail($id);
         $machines = Machine::all();
-        $statuses = Status::all();
+        $statuses = Status::all();//  zorgen ervoor dat de benodigde data uit de database beschikbaar is in de view
         $users = User::all();
         return view('malfunctions.edit', compact('malfunction', 'machines', 'statuses', 'users'));
     }
