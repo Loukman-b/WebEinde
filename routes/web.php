@@ -24,7 +24,8 @@ Route::get('/malfunction', [MalfunctionsController::class, 'index'])->name('malf
 // de middelware functie zorgt ervoor dat de pagina alleen toegankelijk is voor ingelogde gebruikers
 Route::post('/malfunction', [MalfunctionsController::class, 'store'])->middleware('auth')->name('malfunctions.store'); 
 Route::get('/malfunction/create', [MalfunctionsController::class, 'create'])->middleware('auth')->name('malfunctions.create');
-Route::get('/malfunction/{malfunction}/edit', [MalfunctionsController::class, 'edit'])->middleware('auth')->name('malfunctions.edit');
+Route::get('/malfunction/{malfunction}/edit', [MalfunctionsController::class, 'edit'])->middleware('auth')->name('malfunctions.edit'); 
+//{malfunction}: Automatische route-model binding (makkelijker en minder code)
 Route::put('/malfunction/{malfunction}', [MalfunctionsController::class, 'update'])->middleware('auth')->name('malfunctions.update');
 Route::delete('/malfunction/{malfunction}', [MalfunctionsController::class, 'destroy'])->middleware('auth')->name('malfunctions.destroy');
 
